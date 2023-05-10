@@ -72,3 +72,26 @@
     opacity: 0;
   }
 }
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input {
+  width: 350px;
+}
+
+.error-message {
+  display: flex;
+  justify-content: flex-start;
+}

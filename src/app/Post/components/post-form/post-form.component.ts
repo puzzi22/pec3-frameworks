@@ -8,8 +8,8 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducers';
 import { CategoryDTO } from 'src/app/Category/models/category.dto';
+import { AppState } from 'src/app/app.reducers';
 import * as CategoriesAction from '../../../Category/actions';
 import * as PostsAction from '../../actions';
 import { PostDTO } from '../../models/post.dto';
@@ -160,11 +160,11 @@ export class PostFormComponent implements OnInit {
     }
   }
 
-  private createPost(): void {
+  private createPost(postData: PostDTO): void {
     if (this.userId) {
-      this.post.userId = this.userId;
+      postData.userId = this.userId;
 
-      this.store.dispatch(PostsAction.createPost({ post: this.post }));
+      this.store.dispatch(PostsAction.createPost({ post: postData }));
     }
   }
 
@@ -178,10 +178,17 @@ export class PostFormComponent implements OnInit {
     this.isValidForm = true;
     this.post = this.postForm.value;
 
+    // Set num_likes and num_dislikes to 0 when creating a new post
+    const postData = {
+      ...this.post,
+      num_likes: 0,
+      num_dislikes: 0,
+    };
+
     if (this.isUpdateMode) {
       this.editPost();
     } else {
-      this.createPost();
+      this.createPost(postData);
     }
   }
 }

@@ -1,26 +1,63 @@
-<h2>Categories List</h2>
-<button (click)="createCategory()">ADD</button>
+<div class="categories-container">
+  <h2>Categories List</h2>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="createCategory()"
+    class="add-button"
+  >
+    ADD
+  </button>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>TITLE</th>
-      <th>DESCRIPTION</th>
-      <th>CSS COLOR</th>
-      <th>ACTIONS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let category of categories">
-      <td>{{ category.categoryId }}</td>
-      <td>{{ category.title }}</td>
-      <td>{{ category.description }}</td>
-      <td>{{ category.css_color }}</td>
-      <td>
-        <button (click)="updateCategory(category.categoryId)">UPDATE</button>
-        <button (click)="deleteCategory(category.categoryId)">DELETE</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <mat-table [dataSource]="categories" class="categories-table">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let category">{{ category.categoryId }}</mat-cell>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef>TITLE</mat-header-cell>
+      <mat-cell *matCellDef="let category">{{ category.title }}</mat-cell>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>DESCRIPTION</mat-header-cell>
+      <mat-cell *matCellDef="let category">{{ category.description }}</mat-cell>
+    </ng-container>
+
+    <!-- Css Color Column -->
+    <ng-container matColumnDef="css_color">
+      <mat-header-cell *matHeaderCellDef>CSS COLOR</mat-header-cell>
+      <mat-cell *matCellDef="let category">{{ category.css_color }}</mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
+      <mat-cell *matCellDef="let category">
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="updateCategory(category.categoryId)"
+          class="action-button"
+        >
+          UPDATE
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="deleteCategory(category.categoryId)"
+          class="action-button"
+        >
+          DELETE
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

@@ -1,15 +1,19 @@
 <div style="margin-left: auto; margin-right: auto">
   <p id="registerFeedback"></p>
 </div>
-<div>
+<div class="register-container">
   <h1>Register</h1>
-  <form [formGroup]="registerForm" (ngSubmit)="register()">
-    <div>
-      <label for="name">Name: </label>
-      <input type="text" [formControl]="name" />
-      <div
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
+    class="register-form"
+  >
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [formControl]="name" />
+      <mat-error
         *ngIf="name.errors && isValidForm != null && !isValidForm"
-        [ngClass]="'error'"
+        class="error-message"
       >
         <div *ngIf="name.errors.required">Name is required</div>
         <div *ngIf="name.errors.minlength">
@@ -18,14 +22,15 @@
         <div *ngIf="name.errors.maxlength">
           Name can be max 25 characters long.
         </div>
-      </div>
-    </div>
-    <div>
-      <label for="surname1">Surname1: </label>
-      <input type="text" [formControl]="surname_1" />
-      <div
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Surname1</mat-label>
+      <input matInput type="text" [formControl]="surname_1" />
+      <mat-error
         *ngIf="surname_1.errors && isValidForm != null && !isValidForm"
-        [ngClass]="'error'"
+        class="error-message"
       >
         <div *ngIf="surname_1.errors.required">Surname1 is required</div>
         <div *ngIf="surname_1.errors.minlength">
@@ -34,14 +39,15 @@
         <div *ngIf="surname_1.errors.maxlength">
           Surname1 can be max 25 characters long.
         </div>
-      </div>
-    </div>
-    <div>
-      <label for="surname2">Surname2: </label>
-      <input type="text" [formControl]="surname_2" />
-      <div
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Surname2</mat-label>
+      <input matInput type="text" [formControl]="surname_2" />
+      <mat-error
         *ngIf="surname_2.errors && isValidForm != null && !isValidForm"
-        [ngClass]="'error'"
+        class="error-message"
       >
         <div *ngIf="surname_2.errors.minlength">
           Surname2 must be at least 5 characters long.
@@ -49,14 +55,15 @@
         <div *ngIf="surname_2.errors.maxlength">
           Surname2 can be max 25 characters long.
         </div>
-      </div>
-    </div>
-    <div>
-      <label for="alias">Alias: </label>
-      <input type="text" [formControl]="alias" />
-      <div
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Alias</mat-label>
+      <input matInput type="text" [formControl]="alias" />
+      <mat-error
         *ngIf="alias.errors && isValidForm != null && !isValidForm"
-        [ngClass]="'error'"
+        class="error-message"
       >
         <div *ngIf="alias.errors.required">Alias is required</div>
         <div *ngIf="alias.errors.minlength">
@@ -65,44 +72,53 @@
         <div *ngIf="alias.errors.maxlength">
           Alias can be max 25 characters long.
         </div>
-      </div>
-    </div>
-    <div>
-      <label for="birthDate">Birth date: </label>
-      <input type="date" [formControl]="birth_date" />
-      <div
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Birth date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        type="text"
+        [formControl]="birth_date"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error
         *ngIf="birth_date.errors && isValidForm != null && !isValidForm"
-        [ngClass]="'error'"
+        class="error-message"
       >
         <div *ngIf="birth_date.errors.required">Birth date is required</div>
-      </div>
-    </div>
-    <div>
-      <label for="email">Email: </label>
-      <input type="email" [formControl]="email" />
-      <div
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [formControl]="email" />
+      <mat-error
         *ngIf="email.errors && isValidForm != null && !isValidForm"
-        [ngClass]="'error'"
+        class="error-message"
       >
         <div *ngIf="email.errors.required">Email is required</div>
         <div *ngIf="email.errors.pattern">Email not a valid format.</div>
-      </div>
-    </div>
+      </mat-error>
+    </mat-form-field>
 
-    <div>
-      <label for="password">Password: </label>
-      <input type="password" [formControl]="password" />
-      <div
+    <mat-form-field appearance="fill" class="input">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" [formControl]="password" />
+      <mat-error
         *ngIf="password.errors && isValidForm != null && !isValidForm"
-        [ngClass]="'error'"
+        class="error-message"
       >
         <div *ngIf="password.errors.required">Password is required</div>
         <div *ngIf="password.errors.minlength">
           Password must be at least 8 characters long.
         </div>
-      </div>
-    </div>
+      </mat-error>
+    </mat-form-field>
 
-    <button type="submit">Register</button>
+    <button mat-raised-button type="submit">Register</button>
   </form>
 </div>
