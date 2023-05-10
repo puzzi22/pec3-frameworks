@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { environment } from 'src/environments/environment';
 import { AuthModule } from './Auth/auth.module';
 import { CategoryModule } from './Category/category.module';
@@ -49,6 +50,7 @@ import { EffectsArray, appReducers } from './app.reducers';
     MatButtonModule,
     MatFormFieldModule,
     MatToolbarModule,
+    NgxChartsModule,
   ],
   providers: [
     {

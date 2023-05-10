@@ -14,6 +14,13 @@ export class DashboardComponent implements OnInit {
   numLikes: number;
   numDislikes: number;
 
+  // Bar chart properties
+  barChartLabels: string[] = ['Likes', 'Dislikes'];
+  barChartData: any[] = [
+    { name: 'Likes', value: 0 },
+    { name: 'Dislikes', value: 0 },
+  ];
+
   constructor(private store: Store<AppState>) {
     this.posts = new Array<PostDTO>();
     this.numLikes = 0;
@@ -27,6 +34,12 @@ export class DashboardComponent implements OnInit {
         this.numLikes = this.numLikes + post.num_likes;
         this.numDislikes = this.numDislikes + post.num_dislikes;
       });
+
+      // Update the bar chart data
+      this.barChartData = [
+        { name: 'Likes', value: this.numLikes },
+        { name: 'Dislikes', value: this.numDislikes },
+      ];
     });
   }
 

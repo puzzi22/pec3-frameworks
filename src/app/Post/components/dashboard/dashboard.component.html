@@ -1,4 +1,15 @@
-<div *ngIf="posts">
-  <p>Num likes: {{ numLikes }}</p>
-  <p>Num dislikes: {{ numDislikes }}</p>
+<div class="dashboard-container">
+  <div *ngIf="posts">
+    <p class="data">Num likes: {{ numLikes }}</p>
+    <p class="data">Num dislikes: {{ numDislikes }}</p>
+
+    <!-- Add the bar chart -->
+    <ngx-charts-bar-vertical
+      [results]="barChartData"
+      [xAxisLabel]="'Categories'"
+      [yAxisLabel]="'Values'"
+      [view]="[400, 300]"
+    >
+    </ngx-charts-bar-vertical>
+  </div>
 </div>

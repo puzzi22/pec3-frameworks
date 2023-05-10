@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormatDatePipe } from '../Shared/Pipes/format-date.pipe';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
@@ -32,6 +34,8 @@ import { PostsListComponent } from './components/posts-list/posts-list.component
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
+    BrowserAnimationsModule,
+    NgxChartsModule,
   ],
 })
 export class PostModule {}
