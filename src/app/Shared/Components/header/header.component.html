@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <div class="toolbar-content">
+    <!-- NO AUTH REQUIRED -->
+    <ng-container *ngIf="showNoAuthSection">
+      <button mat-button (click)="dashboard()">Dashboard</button>
+      <button mat-button (click)="home()">Home</button>
+      <button mat-button (click)="login()">Login</button>
+      <button mat-button (click)="register()">Register</button>
+    </ng-container>
+
+    <!-- AUTH REQUIRED -->
+    <ng-container *ngIf="showAuthSection">
+      <button mat-button (click)="dashboard()">Dashboard</button>
+      <button mat-button (click)="home()">Home</button>
+      <button mat-button (click)="adminPosts()">Admin posts</button>
+      <button mat-button (click)="adminCategories()">Admin categories</button>
+      <button mat-button (click)="profile()">Profile</button>
+      <button mat-button (click)="logout()">Logout</button>
+    </ng-container>
+  </div>
+</mat-toolbar>

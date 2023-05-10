@@ -1,0 +1,69 @@
+<div class="post-list-container">
+  <h2>Post List</h2>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="createPost()"
+    class="add-button"
+  >
+    ADD
+  </button>
+
+  <mat-table [dataSource]="posts" class="post-list-table">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let post">{{ post.postId }}</mat-cell>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef>TITLE</mat-header-cell>
+      <mat-cell *matCellDef="let post">{{ post.title }}</mat-cell>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>DESCRIPTION</mat-header-cell>
+      <mat-cell *matCellDef="let post">{{ post.description }}</mat-cell>
+    </ng-container>
+
+    <!-- Num Likes Column -->
+    <ng-container matColumnDef="num_likes">
+      <mat-header-cell *matHeaderCellDef>NUM LIKES</mat-header-cell>
+      <mat-cell *matCellDef="let post">{{ post.num_likes }}</mat-cell>
+    </ng-container>
+
+    <!-- Num Dislikes Column -->
+    <ng-container matColumnDef="num_dislikes">
+      <mat-header-cell *matHeaderCellDef>NUM DISLIKES</mat-header-cell>
+      <mat-cell *matCellDef="let post">{{ post.num_dislikes }}</mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
+      <mat-cell *matCellDef="let post">
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="updatePost(post.postId)"
+          class="action-button"
+        >
+          UPDATE
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="deletePost(post.postId)"
+          class="action-button"
+        >
+          DELETE
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
