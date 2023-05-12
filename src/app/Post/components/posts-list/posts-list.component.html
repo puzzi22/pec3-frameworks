@@ -1,4 +1,4 @@
-<div class="post-list-container">
+<div class="post-list-container" [@fadeInOut]>
   <h2>Post List</h2>
   <button
     mat-raised-button
@@ -8,7 +8,6 @@
   >
     ADD
   </button>
-
   <mat-table [dataSource]="posts" class="post-list-table">
     <!-- ID Column -->
     <ng-container matColumnDef="id">

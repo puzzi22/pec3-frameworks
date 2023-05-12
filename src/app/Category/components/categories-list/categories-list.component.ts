@@ -1,3 +1,10 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -9,6 +16,17 @@ import { CategoryDTO } from '../../models/category.dto';
   selector: 'app-categories-list',
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state(
+        'void',
+        style({
+          opacity: 0.2,
+        })
+      ),
+      transition('void <=> *', animate(1500)),
+    ]),
+  ],
 })
 export class CategoriesListComponent {
   categories: CategoryDTO[];

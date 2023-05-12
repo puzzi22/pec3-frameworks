@@ -1,8 +1,17 @@
+import {
+  animate,
+  keyframes,
+  query,
+  stagger,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducers';
 import { SharedService } from 'src/app/Shared/Services/shared.service';
+import { AppState } from 'src/app/app.reducers';
 import * as PostsAction from '../../actions';
 import { PostDTO } from '../../models/post.dto';
 import { PostService } from '../../services/post.service';
@@ -11,6 +20,41 @@ import { PostService } from '../../services/post.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('listCardAnimation', [
+      transition('* => *', [
+        query(
+          ':enter',
+          style({
+            opacity: 0,
+          }),
+          { optional: true }
+        ),
+        query(
+          ':enter',
+          stagger('300ms', [
+            animate(
+              '.8s ease-in',
+              keyframes([
+                style({
+                  opacity: 0,
+                  transform: 'translateY(-30px)',
+                  offset: 0,
+                }),
+                style({
+                  opacity: 0.5,
+                  transform: 'translateY(20px)',
+                  offset: 0.3,
+                }),
+                style({ opacity: 1, transform: 'translateY(0)', offset: 1 }),
+              ])
+            ),
+          ]),
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
 export class HomeComponent {
   posts: PostDTO[];

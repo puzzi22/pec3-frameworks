@@ -1,95 +1,52 @@
-<!-- <div style="margin-left: auto; margin-right: auto">
-  <p id="loginFeedback"></p>
-</div>
-<div>
-  <h1>Login</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div>
-      <label for="email">Email: </label>
-      <input type="email" [formControl]="email" />
-    </div>
-
-    <div>
-      <label for="password">Password: </label>
-      <input type="password" [formControl]="password" />
-    </div>
-
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
-  </form>
-</div>
-
-<div *ngIf="email.errors">
-  <span
-    style="color: red"
-    *ngIf="email.errors && (email.touched || email.dirty)"
-  >
-    <span *ngIf="email.errors.required">Email is required</span>
-    <div *ngIf="email.errors.pattern">Email not a valid format.</div>
-  </span>
-</div>
-
-<div *ngIf="password.errors">
-  <span
-    style="color: red"
-    *ngIf="password.errors && (password.touched || password.dirty)"
-  >
-    <span *ngIf="password.errors.required">Password is required</span>
-    <span *ngIf="password.errors.minlength"
-      >Password must be greater tha 8 characters</span
-    >
-    <span *ngIf="password.errors.maxlength"
-      >Password can be max 16 characters long</span
-    >
-  </span>
-</div> -->
-
 <div style="margin-left: auto; margin-right: auto">
   <p id="loginFeedback"></p>
 </div>
 <div class="login-container">
   <h1>Login</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
-    <mat-form-field appearance="fill" class="input">
-      <mat-label>Email</mat-label>
-      <input
-        matInput
-        type="email"
-        [formControl]="email"
-        placeholder="Ex. hornplayer@world.com"
-      />
-      <mat-error
-        *ngIf="email.errors && (email.touched || email.dirty)"
-        class="error-message"
-      >
-        <div *ngIf="email.errors.required">Email is required</div>
-        <div *ngIf="email.errors.pattern">Email not a valid format.</div>
-      </mat-error>
-    </mat-form-field>
+  <div [@fadeInOut]>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+      <mat-form-field appearance="fill" class="input">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          [formControl]="email"
+          placeholder="Ex. hornplayer@world.com"
+        />
+        <mat-error
+          *ngIf="email.errors && (email.touched || email.dirty)"
+          class="error-message"
+        >
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.pattern">Email not a valid format.</div>
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field appearance="fill" class="input">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" [formControl]="password" />
-      <mat-error
-        *ngIf="password.errors && (password.touched || password.dirty)"
-        class="error-message"
-      >
-        <div *ngIf="password.errors.required">Password is required</div>
-        <div *ngIf="password.errors.minlength">
-          Password must be greater than 8 characters
-        </div>
-        <div *ngIf="password.errors.maxlength">
-          Password can be max 16 characters long
-        </div>
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field appearance="fill" class="input">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [formControl]="password" />
+        <mat-error
+          *ngIf="password.errors && (password.touched || password.dirty)"
+          class="error-message"
+        >
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be greater than 8 characters
+          </div>
+          <div *ngIf="password.errors.maxlength">
+            Password can be max 16 characters long
+          </div>
+        </mat-error>
+      </mat-form-field>
 
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="!loginForm.valid"
-    >
-      Login
-    </button>
-  </form>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
+    </form>
+  </div>
 </div>
