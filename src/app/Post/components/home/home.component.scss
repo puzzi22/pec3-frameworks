@@ -3,35 +3,11 @@
   margin-bottom: 40px;
 }
 
-.badge {
-  color: black;
-  margin-right: 5px;
-  margin-left: 5px;
-  border-radius: 10px;
-  padding: 5px 10px;
-}
-
 .home-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.example-card {
-  display: flex;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  border-radius: 10px;
-  align-items: center;
-}
-
-.exampler-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .posts-container {
@@ -46,14 +22,6 @@
 .post-container {
   display: flex;
   flex-direction: column;
-}
-
-mat-card-header {
-  padding-top: 10px;
-}
-
-mat-card-content {
-  padding-top: 10px;
 }
 
 h1 {

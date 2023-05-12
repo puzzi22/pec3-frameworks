@@ -11,11 +11,11 @@ import { AppState } from './app.reducers';
 })
 export class AppComponent implements OnInit {
   title = 'blog-uoc-project-front';
-  isLoading: Observable<boolean> = of(false); // assign a dummy observable
+  isLoading: Observable<boolean> = of(false);
 
-  constructor(private store: Store<AppState>) {} // use AppState as the type for Store
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-    this.isLoading = this.store.pipe(select(selectLoading)); // use the selector
+    this.isLoading = this.store.pipe(select(selectLoading));
   }
 }

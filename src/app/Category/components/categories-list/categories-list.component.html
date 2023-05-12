@@ -10,31 +10,26 @@
   </button>
 
   <mat-table [dataSource]="categories" class="categories-table">
-    <!-- ID Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
       <mat-cell *matCellDef="let category">{{ category.categoryId }}</mat-cell>
     </ng-container>
 
-    <!-- Title Column -->
     <ng-container matColumnDef="title">
       <mat-header-cell *matHeaderCellDef>TITLE</mat-header-cell>
       <mat-cell *matCellDef="let category">{{ category.title }}</mat-cell>
     </ng-container>
 
-    <!-- Description Column -->
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef>DESCRIPTION</mat-header-cell>
       <mat-cell *matCellDef="let category">{{ category.description }}</mat-cell>
     </ng-container>
 
-    <!-- Css Color Column -->
     <ng-container matColumnDef="css_color">
       <mat-header-cell *matHeaderCellDef>CSS COLOR</mat-header-cell>
       <mat-cell *matCellDef="let category">{{ category.css_color }}</mat-cell>
     </ng-container>
 
-    <!-- Actions Column -->
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
       <mat-cell *matCellDef="let category">

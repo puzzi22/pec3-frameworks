@@ -9,37 +9,31 @@
     ADD
   </button>
   <mat-table [dataSource]="posts" class="post-list-table">
-    <!-- ID Column -->
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
       <mat-cell *matCellDef="let post">{{ post.postId }}</mat-cell>
     </ng-container>
 
-    <!-- Title Column -->
     <ng-container matColumnDef="title">
       <mat-header-cell *matHeaderCellDef>TITLE</mat-header-cell>
       <mat-cell *matCellDef="let post">{{ post.title }}</mat-cell>
     </ng-container>
 
-    <!-- Description Column -->
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef>DESCRIPTION</mat-header-cell>
       <mat-cell *matCellDef="let post">{{ post.description }}</mat-cell>
     </ng-container>
 
-    <!-- Num Likes Column -->
     <ng-container matColumnDef="num_likes">
       <mat-header-cell *matHeaderCellDef>NUM LIKES</mat-header-cell>
       <mat-cell *matCellDef="let post">{{ post.num_likes }}</mat-cell>
     </ng-container>
 
-    <!-- Num Dislikes Column -->
     <ng-container matColumnDef="num_dislikes">
       <mat-header-cell *matHeaderCellDef>NUM DISLIKES</mat-header-cell>
       <mat-cell *matCellDef="let post">{{ post.num_dislikes }}</mat-cell>
     </ng-container>
 
-    <!-- Actions Column -->
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>ACTIONS</mat-header-cell>
       <mat-cell *matCellDef="let post">

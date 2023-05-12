@@ -7,7 +7,6 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { SharedService } from 'src/app/Shared/Services/shared.service';
@@ -93,33 +92,5 @@ export class HomeComponent {
 
   private loadPosts(): void {
     this.store.dispatch(PostsAction.getPosts());
-  }
-
-  like(postId: string): void {
-    let errorResponse: any;
-
-    this.postService.likePost(postId).subscribe(
-      () => {
-        this.loadPosts();
-      },
-      (error: HttpErrorResponse) => {
-        errorResponse = error.error;
-        this.sharedService.errorLog(errorResponse);
-      }
-    );
-  }
-
-  dislike(postId: string): void {
-    let errorResponse: any;
-
-    this.postService.dislikePost(postId).subscribe(
-      () => {
-        this.loadPosts();
-      },
-      (error: HttpErrorResponse) => {
-        errorResponse = error.error;
-        this.sharedService.errorLog(errorResponse);
-      }
-    );
   }
 }

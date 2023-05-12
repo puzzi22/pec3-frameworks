@@ -196,7 +196,6 @@ export class PostFormComponent implements OnInit {
     this.isValidForm = true;
     this.post = this.postForm.value;
 
-    // Set num_likes and num_dislikes to 0 when creating a new post
     const postData = {
       ...this.post,
       num_likes: 0,
